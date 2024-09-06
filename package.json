@@ -21,7 +21,7 @@
     "validate": "turbo run validate",
     "validate:ci": "cross-env HUSKY=0 turbo run validate:ci",
     "prepare": "is-ci || husky install",
-    "postinstall": "yarn compile && cd apps/expo && yarn build:plugins",
+    "postinstall": "yarn compile && cd apps/expo",
     "gen:db-types": "npx supabase gen types typescript --project-id kjqfqinlhgiiasugbqzd --schema public > packages/types/src/types/database.types.ts && yarn format --force && yarn compile --force"
   },
   "workspaces": {
