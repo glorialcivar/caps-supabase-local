@@ -1,0 +1,29 @@
+{
+  "name": "@simple/types",
+  "version": "0.0.0",
+  "description": "Shared types and interfaces",
+  "private": true,
+  "main": "./dist/bundle.cjs",
+  "module": "./dist/bundle.mjs",
+  "types": "./dist/bundle.d.ts",
+  "type": "module",
+  "scripts": {
+    "start": "echo skipping",
+    "compile": "rollup -c",
+    "dev": "yarn compile -w",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "yarn compile",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ext .ts,.tsx .",
+    "test:all": "echo skipping",
+    "test:e2e": "echo skipping",
+    "test:ci": "echo skipping",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(ts|tsx)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "validate": "cross-env CI=true npm-run-all --parallel check-types check-format lint build",
+    "validate:ci": "npm-run-all --parallel check-types check-format lint"
+  },
+  "peerDependencies": {}
+}

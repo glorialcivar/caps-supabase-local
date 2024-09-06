@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "265046040770",
+    "firebase_url": "https://simple-commerce-dev-default-rtdb.firebaseio.com",
+    "project_id": "simple-commerce-dev",
+    "storage_bucket": "simple-commerce-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:265046040770:android:48b0a76140c0660b0ddb5b",
+        "android_client_info": {
+          "package_name": "com.trade.expoSimpleCommerce"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "265046040770-m3akbvpnoe6ivdu4cv36817lu40tfiih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trade.expoSimpleCommerce",
+            "certificate_hash": "7a5a7bd6a7683d25d34c89fdd739ab6490640247"
+          }
+        },
+        {
+          "client_id": "265046040770-diqotrvs0gr4arc2l4m1oga8gmuoghcg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0tnKie5VcPV7D1rkQyzWmeFQ_Eu83h9o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "265046040770-bdc3ntf4rl16l5nqnirjqqj5nh9jl317.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "265046040770-0iokkismujt8eou1vjdcf4eee3b1u74v.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.trade.expoSimpleCommerce"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,109 @@
+{
+  "cli": {
+    "version": ">= 0.43.0"
+  },
+  "build": {
+    "template": {
+      "releaseChannel": "internal",
+      "env": {
+        "ENTRY_FILE": "index.js"
+      },
+      "cache": {
+        "key": "cache-1"
+      },
+      "ios": {}
+    },
+    "dev": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "extends": "template",
+      "ios": {
+        "simulator": true
+      }
+    },
+    "dev:device": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "extends": "template"
+    },
+    "dev:prod": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "extends": "template",
+      "ios": {
+        "simulator": true
+      },
+      "env": {
+        "ENV": "production"
+      }
+    },
+    "preview": {
+      "distribution": "store",
+      "extends": "template",
+      "ios": {
+        "autoIncrement": true
+      },
+      "android": {
+        "autoIncrement": true,
+        "buildType": "apk"
+      }
+    },
+    "preview:production": {
+      "distribution": "store",
+      "extends": "template",
+      "credentialsSource": "local",
+      "env": {
+        "ENTRY_FILE": "index.js",
+        "ENV": "production"
+      },
+      "ios": {
+        "autoIncrement": true
+      },
+      "android": {
+        "autoIncrement": true,
+        "buildType": "apk"
+      }
+    },
+    "production": {
+      "extends": "template",
+      "releaseChannel": "production",
+      "distribution": "store",
+      "credentialsSource": "local",
+      "env": {
+        "ENTRY_FILE": "index.js",
+        "ENV": "production"
+      },
+      "ios": {
+        "autoIncrement": true
+      },
+      "android": {
+        "autoIncrement": true
+      }
+    }
+  },
+  "submit": {
+    "development": {
+      "ios": {
+        "appleId": "tradeappleconnect@gmail.com",
+        "ascAppId": "CHANGEME",
+        "appleTeamId": "UZ67P53676",
+        "language": "es-MX",
+        "sku": "CHANGEME"
+      }
+    },
+    "production": {
+      "android": {
+        "track": "internal",
+        "releaseStatus": "inProgress",
+        "changesNotSentForReview": true
+      },
+      "ios": {
+        "appleId": "CHANGEME",
+        "ascAppId": "CHANGEME",
+        "appleTeamId": "CHANGEME",
+        "language": "es-MX",
+        "sku": "CHANGEME"
+      }
+    }
+  }
+}

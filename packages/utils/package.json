@@ -1,0 +1,35 @@
+{
+  "name": "@simple/utils",
+  "version": "0.0.0",
+  "description": "Shared utility functions and data",
+  "private": true,
+  "main": "./dist/bundle.cjs",
+  "module": "./dist/bundle.mjs",
+  "types": "./dist/bundle.d.ts",
+  "type": "module",
+  "scripts": {
+    "start": "echo skipping",
+    "compile": "rollup -c",
+    "dev": "yarn compile -w",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "yarn compile",
+    "test": "vitest --passWithNoTests",
+    "test:all": "vitest run --passWithNoTests",
+    "test:e2e": "echo skipping",
+    "test:ci": "cross-env CI=true vitest run --passWithNoTests",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ext .js,jsx,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "validate": "cross-env CI=true npm-run-all --parallel test:ci check-types check-format lint build",
+    "validate:ci": "npm-run-all --parallel check-types check-format lint"
+  },
+  "devDependencies": {
+    "@simple/types": "*"
+  },
+  "peerDependencies": {
+    "@simple/types": "*"
+  }
+}

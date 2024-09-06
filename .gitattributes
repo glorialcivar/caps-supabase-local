@@ -1,0 +1,7 @@
+* eol=lf
+*.jpg        -text
+*.png        -text
+*.webp       -text
+*.avif       -text
+*.ico        -text
+*.otf        binary

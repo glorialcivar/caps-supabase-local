@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --pad: 8px;
+  }
+
+  @media all and (min-width: 640px) {
+    :root {
+      --pad: 16px;
+    }
+  }
+
+  html,
+  body {
+    @apply bg-background-2 h-full font-sans;
+  }
+
+  body {
+    @apply text-typography;
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-1 w-2;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-background-contrast rounded;
+  }
+}
+
+@layer utilities {
+  .layout {
+    @apply grid-cols-page grid auto-rows-max;
+  }
+
+  .layout-content {
+    @apply col-content;
+  }
+
+  .layout-bleed {
+    @apply col-bleed;
+  }
+}

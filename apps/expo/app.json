@@ -1,0 +1,53 @@
+{
+  "expo": {
+    "name": "expo-simple-commerce",
+    "slug": "expo-simple-commerce",
+    "owner": "trade-devops",
+    "description": "",
+    "backgroundColor": "#181A1F",
+    "privacy": "unlisted",
+    "primaryColor": "#181A1F",
+    "platforms": ["ios", "android"],
+    "version": "0.0.1",
+    "entryPoint": "index.js",
+    "orientation": "default",
+    "icon": "src/assets/images/icon.png",
+    "scheme": "com.trade.expo-simple-commerce",
+    "splash": {
+      "image": "src/assets/images/splash/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#181A1F"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": ["**/*"],
+    "android": {
+      "versionCode": 2,
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "FOREGROUND_SERVICE",
+        "INTERNET",
+        "LOCATION",
+        "READ_INTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ]
+    },
+    "ios": {
+      "requireFullScreen": true,
+      "usesAppleSignIn": true,
+      "buildNumber": "0",
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Tu ubicación nos ayudará a seleccionar la tienda más cercana."
+      }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f2901282-788e-4948-9740-4260739a84ab"
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "compile": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["src/**/*"],
+      "outputs": ["dist/**", ".next/**"]
+    },
+    "test": {
+      "dependsOn": ["^build", "compile"],
+      "inputs": ["src/**/*.test.tsx", "src/**/*.test.ts"]
+    },
+    "test:all": {
+      "dependsOn": ["^build", "compile"],
+      "inputs": ["src/**/*.test.tsx", "src/**/*.test.ts"]
+    },
+    "test:e2e": {
+      "dependsOn": ["^build", "compile"],
+      "inputs": ["src/**/*.spec.ts"]
+    },
+    "test:ci": {
+      "dependsOn": ["^build", "compile"],
+      "inputs": ["src/**/*.test.tsx", "src/**/*.test.ts"]
+    },
+    "check-types": {
+      "dependsOn": ["^build", "compile"],
+      "inputs": ["src/**/*"]
+    },
+    "lint": {
+      "dependsOn": ["^build"]
+    },
+    "format": {
+      "dependsOn": ["^build"]
+    },
+    "check-format": {
+      "dependsOn": ["^build"]
+    },
+    "validate": {
+      "dependsOn": ["^build"]
+    },
+    "validate:ci": {
+      "dependsOn": ["^build"]
+    }
+  }
+}

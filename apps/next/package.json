@@ -1,0 +1,44 @@
+{
+  "name": "dashboard",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "next dev",
+    "dev": "yarn start",
+    "test": "vitest",
+    "test:all": "vitest run",
+    "test:e2e": "npx playwright test",
+    "test:ci": "cross-env CI=true vitest run",
+    "check-types": "tsc",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ext .js,jsx,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "compile": "echo skipping compile",
+    "build": "next build",
+    "analyze": "cross-env ANALYZE=true yarn build",
+    "validate": "cross-env CI=true npm-run-all --parallel test check-types check-format lint build",
+    "validate:ci": "npm-run-all --parallel check-types check-format lint",
+    "deploy:preview": "vercel",
+    "deploy": "vercel --prod"
+  },
+  "dependencies": {
+    "@simple/utils": "*"
+  },
+  "devDependencies": {
+    "@simple/builders": "*",
+    "@simple/types": "*"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
