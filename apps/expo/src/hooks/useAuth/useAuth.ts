@@ -14,8 +14,7 @@ import { getFirebaseAuthError, getGoogleAuthError } from "utils/auth.utils";
 import { getAppleAuthError, getFacebookAuthError } from "utils/auth.utils";
 
 const { STORAGE, APP } = CONSTANTS;
-const { MAGIC_LINK_EMAIL, SSO_USER_TOKEN } = STORAGE;
-const { BUNDLE_ID } = APP;
+const { SSO_USER_TOKEN } = STORAGE;
 
 // Auth custom hook functions
 const useAuth = (): UseAuthValues => {
@@ -65,20 +64,6 @@ const useAuth = (): UseAuthValues => {
       sendPasswordResetEmail: async (email: string) => {
         try {
           return await auth().sendPasswordResetEmail(email);
-        } catch (error) {
-          throw new Error(getFirebaseAuthError(error));
-        }
-      },
-      sendSignInLinkToEmail: async (email: string) => {
-        try {
-          AsyncStorage.setItem(MAGIC_LINK_EMAIL, email);
-          return await auth().sendSignInLinkToEmail(email, {
-            // Create a firebase magic link
-            url: "https://www.CHANGEME.com.ec/magic-link",
-            handleCodeInApp: true,
-            iOS: { bundleId: BUNDLE_ID },
-            android: { packageName: BUNDLE_ID, installApp: true }
-          });
         } catch (error) {
           throw new Error(getFirebaseAuthError(error));
         }
@@ -151,9 +136,8 @@ const useAuth = (): UseAuthValues => {
           auth.FacebookAuthProvider.credential(accessToken);
         if (!facebookCredential) return facebookCredential;
         try {
-          const response = await auth().signInWithCredential(
-            facebookCredential
-          );
+          const response =
+            await auth().signInWithCredential(facebookCredential);
           setUserInLocalStorage(response);
           return response;
         } catch (error) {

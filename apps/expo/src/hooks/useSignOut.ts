@@ -1,16 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import auth from "@react-native-firebase/auth";
 import { useNavigation } from "@react-navigation/native";
-import { useShoppingCartStore } from "@simple/stores";
-import { useStoresStore } from "@simple/stores";
 import { useVendorsStore } from "@simple/stores";
-import { useShippingAddressStore } from "@simple/stores";
-import { useProductsStore } from "@simple/stores";
-import { usePaymentsStore } from "@simple/stores";
-import { useGeoStore } from "@simple/stores";
-import { useCountriesStore } from "@simple/stores";
-import { useCataloguesStore } from "@simple/stores";
-import { useBillingDataStore } from "@simple/stores";
 
 import CONSTANTS from "config/constants";
 import { HomeNavigation } from "screens/Home/Home.screen.types";
@@ -24,17 +15,6 @@ const { SHIPPING_ADDRESS_TOKEN, THEME_PREFERENCE_TOKEN } = STORAGE;
 const useSignOut = () => {
   const { navigate } = useNavigation<HomeNavigation>();
   const resetAuthStore = useAuthStore(state => state.reset);
-  const resetBillingStore = useBillingDataStore(state => state.reset);
-  const resetCataloguesStore = useCataloguesStore(state => state.reset);
-  const resetCountriesStore = useCountriesStore(state => state.reset);
-  const resetGeoStore = useGeoStore(state => state.reset);
-  const resetPaymentsStore = usePaymentsStore(state => state.reset);
-  const resetProductsStore = useProductsStore(state => state.reset);
-  const resetShippingAddressStore = useShippingAddressStore(
-    state => state.reset
-  );
-  const resetShoppingCartStore = useShoppingCartStore(state => state.reset);
-  const resetStoresStore = useStoresStore(state => state.reset);
   const resetVendorsStore = useVendorsStore(state => state.reset);
 
   const cleanLocalStorage = () => {
@@ -52,15 +32,6 @@ const useSignOut = () => {
 
   const signOut = async () => {
     cleanLocalStorage();
-    resetBillingStore();
-    resetCataloguesStore();
-    resetCountriesStore();
-    resetGeoStore();
-    resetPaymentsStore();
-    resetProductsStore();
-    resetShippingAddressStore();
-    resetShoppingCartStore();
-    resetStoresStore();
     resetVendorsStore();
     auth().signOut();
     resetAuthStore();

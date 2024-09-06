@@ -14,7 +14,6 @@ export interface UseAuthValues {
   signInWithFacebook: () => Promise<FirebaseAuthTypes.UserCredential>;
   signInWithApple: () => Promise<FirebaseAuthTypes.UserCredential>;
   signInAnonymously: () => Promise<FirebaseAuthTypes.UserCredential>;
-  sendSignInLinkToEmail: (email: string) => Promise<void>;
   signInWithEmailLink: (
     email: string,
     emailLink: string

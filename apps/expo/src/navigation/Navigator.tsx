@@ -30,6 +30,4 @@ const Navigator: React.FC<Props> = props => {
   );
 };
 
-Navigator.defaultProps = {};
-
 export default Navigator;

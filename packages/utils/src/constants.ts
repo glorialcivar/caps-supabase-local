@@ -52,6 +52,8 @@ const WITH_MULTIPLE_PURCHASE_METHODS = WITH_DELIVERY && WITH_PICK_UP;
 export const CONSTANTS = {
   // HTML title tag text (Useful to display the brand name for SEO)
   TITLE: "CHANGEME",
+  // Dashboard URL
+  DASHBOARD_URL: "https://dashboard.CHANGEME.com/",
   // Project configurations
   ARTISN: {
     // Project Account ID

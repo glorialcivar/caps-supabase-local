@@ -25,6 +25,4 @@ const Providers: React.FC<Props> = props => {
   );
 };
 
-Providers.defaultProps = {};
-
 export default Providers;

@@ -15,6 +15,4 @@ const Home: React.FC<Props> = props => {
   );
 };
 
-Home.defaultProps = {};
-
 export default Home;

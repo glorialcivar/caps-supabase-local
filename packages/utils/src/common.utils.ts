@@ -128,3 +128,8 @@ export const clone = <T>(obj: T): T => {
   if ("__DEV__" in global) return legacyClone(obj);
   return structuredClone(obj);
 };
+
+export interface TransformMockImageSizeConfig {
+  imageWidth: number;
+  imageHeight: number;
+}

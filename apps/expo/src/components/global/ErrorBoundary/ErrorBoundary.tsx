@@ -17,13 +17,11 @@ const ErrorBoundary: React.FC<Props> = props => {
   return (
     <ErrorBoundaryLib
       FallbackComponent={Fallback}
-      onError={error => console.log("sdfjsldfjsf", error)}
+      onError={error => console.log("Error", error)}
     >
       {props.children}
     </ErrorBoundaryLib>
   );
 };
-
-ErrorBoundary.defaultProps = {};
 
 export default ErrorBoundary;

@@ -12,38 +12,14 @@ export const useCheckoutStore = create<CheckoutStoreValues>()(
       const values: CheckoutStoreValues = {
         ...defaultValues,
         resetRejectedOrder: () =>
-          set({ status: undefined, placedOrder: undefined }, false, {
+          set({ placedOrder: undefined }, false, {
             type: "resetRejectedOrder"
           }),
-        setUserFormValues: payload => {
-          const prev = get().userFormValues;
-          const userFormValues = getStoreSetState(payload, prev);
-          set({ userFormValues }, false, {
-            type: "setUserFormValues",
-            payload
-          });
-        },
         setTransferAnonymousId: payload => {
           const prev = get().transferAnonymousId;
           const transferAnonymousId = getStoreSetState(payload, prev);
           set({ transferAnonymousId }, false, {
             type: "setTransferAnonymousId",
-            payload
-          });
-        },
-        setStep: payload => {
-          const prev = get().step;
-          const step = getStoreSetState(payload, prev);
-          set({ step }, false, {
-            type: "setStep",
-            payload
-          });
-        },
-        setStatus: payload => {
-          const prev = get().status;
-          const status = getStoreSetState(payload, prev);
-          set({ status }, false, {
-            type: "setStatus",
             payload
           });
         },
@@ -60,14 +36,6 @@ export const useCheckoutStore = create<CheckoutStoreValues>()(
           const placedOrder = getStoreSetState(payload, prev);
           set({ placedOrder }, false, {
             type: "setPlacedOrder",
-            payload
-          });
-        },
-        setBillingFormValues: payload => {
-          const prev = get().billingFormValues;
-          const billingFormValues = getStoreSetState(payload, prev);
-          set({ billingFormValues }, false, {
-            type: "setBillingFormValues",
             payload
           });
         },

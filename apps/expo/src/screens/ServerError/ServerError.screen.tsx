@@ -34,6 +34,4 @@ const ServerError: React.FC<Props> = props => {
   );
 };
 
-ServerError.defaultProps = {};
-
 export default ServerError;

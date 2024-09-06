@@ -1,7 +1,7 @@
 //Image utility function
 import { Category, CDNImage, Image, Product } from "@artisan-commerce/types";
+import { TransformMockImageSizeConfig } from "@simple/utils";
 
-import { TransformMockImageSizeConfig } from "../lib/categories/categories.service.types";
 import { getState } from "../lib/state";
 
 // If mocks are on, tweak the URL to include the wanted dimensions

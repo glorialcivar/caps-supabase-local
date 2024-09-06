@@ -26,7 +26,8 @@
     "@simple/services": "*",
     "@simple/stores": "*",
     "@simple/utils": "*",
-    "@simple/validations": "*"
+    "@simple/validations": "*",
+    "firebase": "^9.22.0"
   },
   "devDependencies": {
     "@simple/builders": "*",
