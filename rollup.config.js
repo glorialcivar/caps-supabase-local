@@ -1,9 +1,9 @@
 import commonjs from "@rollup/plugin-commonjs";
 import json from "@rollup/plugin-json";
-import esbuild from "rollup-plugin-esbuild";
 import dts from "rollup-plugin-dts";
+import esbuild from "rollup-plugin-esbuild";
 
-import globalPackageJSON from "./package.json" assert { type: "json" };
+import globalPackageJSON from "./package.json";
 
 export const dist = "dist/bundle";
 
@@ -19,13 +19,13 @@ export const bundleConfig = (packageJSON, externalsWhitelist = []) => {
     input: "src/index.ts",
     output: [
       {
-        file: `${dist}.cjs`,
+        file: `${dist}.cjs.js`,
         format: "cjs",
         sourcemap: true,
         inlineDynamicImports: true
       },
       {
-        file: `${dist}.mjs`,
+        file: `${dist}.esm.js`,
         format: "esm",
         sourcemap: true,
         inlineDynamicImports: true

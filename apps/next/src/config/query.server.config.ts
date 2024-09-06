@@ -5,4 +5,4 @@ import { cache } from "react";
 
 import { queryClientConfig } from "./query.config";
 
-export const getQueryClient = cache(() => new QueryClient(queryClientConfig));
+export const queryClient = cache(() => new QueryClient(queryClientConfig));

@@ -1,2 +1,3 @@
 // Movies
-export * from "./common.builders";
+export * from "./common.builder";
+export * from "./vendor.builder";

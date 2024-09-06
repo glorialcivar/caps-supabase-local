@@ -3,10 +3,9 @@
   "version": "0.0.0",
   "description": "Builder functions for all entities",
   "private": true,
-  "main": "./dist/bundle.cjs",
-  "module": "./dist/bundle.mjs",
+  "main": "./dist/bundle.cjs.js",
+  "module": "./dist/bundle.esm.js",
   "types": "./dist/bundle.d.ts",
-  "type": "module",
   "scripts": {
     "start": "echo skipping",
     "compile": "rollup -c",
@@ -14,12 +13,12 @@
     "clean": "rimraf dist",
     "prebuild": "yarn clean",
     "build": "yarn compile",
-    "test": "vitest --passWithNoTests",
-    "test:all": "vitest run --passWithNoTests",
-    "test:e2e": "echo skipping",
-    "test:ci": "cross-env CI=true vitest run --passWithNoTests",
+    "test": "jest  --watchAll --runInBand --passWithNoTests",
+    "test:all": "yarn test --watchAll=false --coverage",
+    "test:ci": "cross-env CI=true jest --runInBand --passWithNoTests",
+    "test:staged": "yarn test:ci --findRelatedTests ./src",
     "check-types": "tsc --noEmit",
-    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ext .js,jsx,.ts,.tsx .",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ignore-pattern !cypress/.eslintrc.js --ext .js,jsx,.ts,.tsx .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
     "format": "yarn prettier --write",
     "check-format": "yarn prettier --list-different",
@@ -31,6 +30,8 @@
     "@simple/utils": "*"
   },
   "peerDependencies": {
+    "@artisan-commerce/builders": "*",
+    "@artisan-commerce/types": "*",
     "@simple/types": "*",
     "@simple/utils": "*"
   }

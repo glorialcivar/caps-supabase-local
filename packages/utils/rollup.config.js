@@ -1,6 +1,6 @@
-import { bundleConfig, declarationsConfig } from "../../rollup.config.js";
+import { bundleConfig, declarationsConfig } from "../../rollup.config";
 
-import packageJSON from "./package.json" assert { type: "json" };
+import packageJSON from "./package.json";
 
 const baseConfig = bundleConfig(packageJSON);
 

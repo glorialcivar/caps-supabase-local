@@ -1,0 +1,44 @@
+{
+  "name": "@simple/services",
+  "version": "0.0.0",
+  "description": "Simple commerce shared services",
+  "private": true,
+  "main": "./dist/bundle.cjs.js",
+  "module": "./dist/bundle.esm.js",
+  "types": "./dist/bundle.d.ts",
+  "scripts": {
+    "start": "echo skipping",
+    "compile": "rollup -c",
+    "dev": "yarn compile -w",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "yarn compile",
+    "test": "jest  --watchAll --runInBand --passWithNoTests",
+    "test:all": "yarn test --watchAll=false --coverage",
+    "test:ci": "cross-env CI=true jest --runInBand --passWithNoTests",
+    "test:staged": "yarn test:ci --findRelatedTests ./src",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ignore-pattern !cypress/.eslintrc.js --ext .js,jsx,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "validate": "cross-env CI=true npm-run-all --parallel test:ci check-types check-format lint build",
+    "validate:ci": "npm-run-all --parallel check-types check-format lint"
+  },
+  "devDependencies": {
+    "@simple/builders": "*",
+    "@simple/contexts": "*",
+    "@simple/stores": "*",
+    "@simple/types": "*",
+    "@simple/utils": "*"
+  },
+  "peerDependencies": {
+    "@artisan-commerce/builders": "*",
+    "@artisan-commerce/types": "*",
+    "@simple/builders": "*",
+    "@simple/contexts": "*",
+    "@simple/stores": "*",
+    "@simple/types": "*",
+    "@simple/utils": "*"
+  }
+}

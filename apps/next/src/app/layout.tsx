@@ -2,21 +2,21 @@ import { Inter } from "@next/font/google";
 
 import { RootLayoutProps as Props } from "./types";
 import Providers from "components/global/Providers/Providers";
-
+import { queryClient } from "config/query.server.config";
 import "../global.css";
+import { initServices } from "config/services.config";
+
+initServices(queryClient);
 
 const inter = Inter({ subsets: ["latin"] });
 
 const RootLayout = (props: Props) => {
-  const { children, modals } = props;
+  const { children } = props;
 
   return (
-    <html lang="en" className={inter.className}>
+    <html lang="es" className={inter.className}>
       <body>
-        <Providers>
-          {modals}
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

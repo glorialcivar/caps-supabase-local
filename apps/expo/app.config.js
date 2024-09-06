@@ -6,10 +6,12 @@ const sharedPlugins = [
     "expo-build-properties",
     {
       android: {
-        kotlinVersion: "1.6.10"
+        compileSdkVersion: 34,
+        targetSdkVersion: 34,
+        minSdkVersion: 24,
+        buildToolsVersion: "34.0.0"
       },
       ios: {
-        deploymentTarget: "13.0",
         useFrameworks: "static"
       }
     }

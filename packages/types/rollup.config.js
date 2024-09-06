@@ -1,9 +1,9 @@
-import { declarationsConfig } from "../../rollup.config.js";
+import { declarationsConfig } from "../../rollup.config";
 
 const config = [
   {
     ...declarationsConfig,
-    external: [...declarationsConfig.external]
+    external: [...declarationsConfig.external, "@artisan-commerce/types"]
   }
 ];
 

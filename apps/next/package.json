@@ -23,7 +23,10 @@
     "deploy": "vercel --prod"
   },
   "dependencies": {
-    "@simple/utils": "*"
+    "@simple/services": "*",
+    "@simple/stores": "*",
+    "@simple/utils": "*",
+    "@simple/validations": "*"
   },
   "devDependencies": {
     "@simple/builders": "*",

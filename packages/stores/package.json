@@ -1,0 +1,75 @@
+{
+  "name": "@simple/stores",
+  "description": "Simple commerce shared zustand stores",
+  "private": true,
+  "version": "0.0.0",
+  "main": "./dist/bundle.cjs.js",
+  "module": "./dist/bundle.esm.js",
+  "types": "./dist/bundle.d.ts",
+  "style": "./main.css",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "node": {
+        "import": "./dist/bundle.esm.js",
+        "require": "./dist/bundle.cjs.js"
+      },
+      "default": "./dist/bundle.esm.js"
+    },
+    "./main.css": "./dist/bundle.css"
+  },
+  "scripts": {
+    "start": "echo skipping",
+    "compile": "rollup -c",
+    "dev": "yarn compile -w",
+    "clean": "rimraf dist",
+    "prebuild": "yarn clean",
+    "build": "yarn compile",
+    "test": "jest  --watchAll --runInBand --passWithNoTests",
+    "test:all": "yarn test --watchAll=false --coverage",
+    "test:ci": "cross-env CI=true jest --runInBand --passWithNoTests",
+    "test:staged": "yarn test:ci --findRelatedTests ./src",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint --max-warnings=0 --ignore-path .gitignore --ignore-pattern !cypress/.eslintrc.js --ext .js,jsx,.ts,.tsx .",
+    "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|jsx|ts|tsx|json|css|scss|html)\"",
+    "format": "yarn prettier --write",
+    "check-format": "yarn prettier --list-different",
+    "validate": "cross-env CI=true npm-run-all --parallel test:ci check-types check-format lint build",
+    "validate:ci": "npm-run-all --parallel check-types check-format lint"
+  },
+  "author": "Luis Eduardo Andrade",
+  "dependencies": {},
+  "devDependencies": {
+    "@simple/types": "*",
+    "@simple/utils": "*",
+    "react-app-polyfill": "^2.0.0"
+  },
+  "peerDependencies": {
+    "@artisan-commerce/types": "*",
+    "@simple/types": "*",
+    "@simple/utils": "*",
+    "react": ">=16.8.6"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  }
+}
