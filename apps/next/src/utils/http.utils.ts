@@ -1,10 +1,10 @@
-import { createClient } from "@supabase/supabase-js";
-import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
 import { ApiInputInputs, ApiInputValidation } from "@simple/types";
 import { ResponseBodyError, ResponseBodySuccess } from "@simple/types";
 import { ApiHandlerFn } from "@simple/types";
 import { ApiResponse } from "@simple/types";
+import { createClient } from "@supabase/supabase-js";
+import { NextRequest, NextResponse } from "next/server";
+import { z } from "zod";
 
 export const getDomainURL = (path: string) => {
   let url =
